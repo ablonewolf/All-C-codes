@@ -1,2 +1,8 @@
-.vscode/tasks.json
-.vscode/
+# Ignore Everything
+*
+# But not .cpp files
+!*.cpp
+# Or directories
+!*/
+!.gitignore
+!README.md
