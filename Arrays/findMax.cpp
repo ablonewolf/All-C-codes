@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int Max(int a[], int size)
+int Max(int *a, int size)
 {
   int max = 0;
 
@@ -21,11 +21,12 @@ int main()
   cout << "Please enter the size of the array : ";
   int size;
   cin >> size;
-  int a[size];
+  int *a = new int[size];
   cout << "Please enter the elements of the array : " << endl;
   for (int i = 0; i < size; i++)
   {
     cin >> a[i];
   }
   cout << "The max of the array is : " << Max(a, size) << endl;
+  delete[] a;
 }
