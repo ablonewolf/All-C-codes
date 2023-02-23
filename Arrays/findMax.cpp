@@ -29,4 +29,5 @@ int main()
   }
   cout << "The max of the array is : " << Max(a, size) << endl;
   delete[] a;
+  a = nullptr;
 }
