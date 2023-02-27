@@ -17,10 +17,9 @@ int main()
     int curr = i;
     for (int j = 0; j < strlen(subString); j++)
     {
-      if (mainString[curr] == subString[j])
+      if (mainString[curr++] == subString[j])
       {
         tempSize++;
-        curr++;
       }
       else
       {
