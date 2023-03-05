@@ -8,6 +8,16 @@ private:
   int width;
 
 public:
+  Rectangle()
+  {
+    this->length = 0;
+    this->width = 0;
+  }
+  Rectangle(int length, int width)
+  {
+    this->length = length;
+    this->width = width;
+  }
   void setLength(int length)
   {
     if (length > 0)
@@ -58,7 +68,7 @@ public:
 int main()
 {
   Rectangle rectangle1;
-  cout << "Enter the length and width of the rectangle." << endl;
+  cout << "Enter the length and width of the first rectangle." << endl;
   cout << "width : ";
   int length, width;
   cin >> width;
@@ -69,4 +79,16 @@ int main()
   cout << "The length and width of the above Rectangle are : Length : " << rectangle1.getLength() << ", Width : " << rectangle1.getWidth() << endl;
   cout << "The area of the above rectangle is : " << rectangle1.getArea() << endl;
   cout << "The perimeter of the above rectangle is : " << rectangle1.getPerimeter() << endl;
+
+  int length1, width1;
+  cout << "Enter the length and width of the second rectangle." << endl;
+  cout << "Length : ";
+  cin >> length1;
+  cout << "width : ";
+  cin >> width1;
+  Rectangle *rectangle2 = new Rectangle(length1, width1);
+  cout << "The length and width of the above Rectangle are : Length : " << rectangle2->getLength() << ", Width : " << rectangle2->getWidth() << endl;
+  cout << "The area of the above rectangle is : " << rectangle2->getArea() << endl;
+  cout << "The perimeter of the above rectangle is : " << rectangle2->getPerimeter() << endl;
+  delete rectangle2;
 }
