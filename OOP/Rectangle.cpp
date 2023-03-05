@@ -18,6 +18,11 @@ public:
     this->length = length;
     this->width = width;
   }
+  Rectangle(Rectangle &rectangle)
+  {
+    this->length = rectangle.length;
+    this->width = rectangle.width;
+  }
   void setLength(int length)
   {
     if (length > 0)
@@ -87,6 +92,13 @@ int main()
   cout << "width : ";
   cin >> width1;
   Rectangle *rectangle2 = new Rectangle(length1, width1);
+  cout << "The length and width of the above Rectangle are : Length : " << rectangle2->getLength() << ", Width : " << rectangle2->getWidth() << endl;
+  cout << "The area of the above rectangle is : " << rectangle2->getArea() << endl;
+  cout << "The perimeter of the above rectangle is : " << rectangle2->getPerimeter() << endl;
+  delete rectangle2; // deallocating the memory for rectangle2
+
+  cout << "Now copying the first rectangle to the second rectangle." << endl;
+  rectangle2 = new Rectangle(rectangle1);
   cout << "The length and width of the above Rectangle are : Length : " << rectangle2->getLength() << ", Width : " << rectangle2->getWidth() << endl;
   cout << "The area of the above rectangle is : " << rectangle2->getArea() << endl;
   cout << "The perimeter of the above rectangle is : " << rectangle2->getPerimeter() << endl;
