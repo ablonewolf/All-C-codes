@@ -10,12 +10,28 @@ private:
 public:
   void setLength(int length)
   {
-    this->length = length;
+    if (length > 0)
+    {
+      this->length = length;
+    }
+    else
+    {
+      cout << "Invalid length value, so setting it to zero." << endl;
+      this->length = 0;
+    }
   }
 
   void setWidth(int width)
   {
-    this->width = width;
+    if (width > 0)
+    {
+      this->width = width;
+    }
+    else
+    {
+      cout << "Invalid width value, so setting it to zero." << endl;
+      this->width = 0;
+    }
   }
 
   int getLength()
