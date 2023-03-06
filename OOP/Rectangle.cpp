@@ -84,6 +84,45 @@ bool Rectangle::isSquare()
   }
 }
 
+class Cuboid : public Rectangle
+{
+private:
+  int height;
+
+public:
+  Cuboid(int length, int width, int height)
+  {
+    setLength(length);
+    setWidth(width);
+    this->height = height;
+  }
+
+  void setHeight(int height)
+  {
+    this->height = height;
+  }
+  int getHeight()
+  {
+    return this->height;
+  }
+
+  int getVolume()
+  {
+    return this->getLength() * this->getWidth() * this->getHeight();
+  }
+
+  bool isCube();
+};
+
+bool Cuboid::isCube()
+{
+  if (this->getLength() == this->getWidth() && this->getWidth() == this->getHeight())
+  {
+    return true;
+  }
+  return false;
+}
+
 int main()
 {
   Rectangle rectangle1;
@@ -141,4 +180,25 @@ int main()
     cout << "This rectangle is not a square." << endl;
   }
   delete rectangle2;
+
+  cout << "Now I will create a cuboid. Please enter the length, width and height of the cuboid." << endl;
+  int height;
+  cout << "Length : ";
+  cin >> length;
+  cout << "Width : ";
+  cin >> width;
+  cout << "Height : ";
+  cin >> height;
+  Cuboid *cuboid = new Cuboid(length, width, height);
+  cout << "The volume of this cuboid is : " << cuboid->getVolume() << endl;
+  if (cuboid->isCube())
+  {
+    cout << "This cuboid is a cube." << endl;
+  }
+  else
+  {
+    cout << "This cuboid is not a cube." << endl;
+  }
+
+  delete cuboid; // deallocating the memory for cuboid
 }
