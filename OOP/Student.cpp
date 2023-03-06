@@ -107,4 +107,5 @@ int main()
       cout << "The Student has failed." << endl;
     }
   }
+  delete student1;
 }
