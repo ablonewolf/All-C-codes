@@ -68,7 +68,21 @@ public:
   {
     return 2 * (length + width);
   }
+
+  bool isSquare();
 };
+
+bool Rectangle::isSquare()
+{
+  if (this->getLength() == this->getWidth())
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
 
 int main()
 {
@@ -84,6 +98,14 @@ int main()
   cout << "The length and width of the above Rectangle are : Length : " << rectangle1.getLength() << ", Width : " << rectangle1.getWidth() << endl;
   cout << "The area of the above rectangle is : " << rectangle1.getArea() << endl;
   cout << "The perimeter of the above rectangle is : " << rectangle1.getPerimeter() << endl;
+  if (rectangle1.isSquare())
+  {
+    cout << "This rectangle is a square." << endl;
+  }
+  else
+  {
+    cout << "This rectangle is not a square." << endl;
+  }
 
   int length1, width1;
   cout << "Enter the length and width of the second rectangle." << endl;
@@ -95,6 +117,14 @@ int main()
   cout << "The length and width of the above Rectangle are : Length : " << rectangle2->getLength() << ", Width : " << rectangle2->getWidth() << endl;
   cout << "The area of the above rectangle is : " << rectangle2->getArea() << endl;
   cout << "The perimeter of the above rectangle is : " << rectangle2->getPerimeter() << endl;
+  if (rectangle2->isSquare())
+  {
+    cout << "This rectangle is a square." << endl;
+  }
+  else
+  {
+    cout << "This rectangle is not a square." << endl;
+  }
   delete rectangle2; // deallocating the memory for rectangle2
 
   cout << "Now copying the first rectangle to the second rectangle." << endl;
@@ -102,5 +132,13 @@ int main()
   cout << "The length and width of the above Rectangle are : Length : " << rectangle2->getLength() << ", Width : " << rectangle2->getWidth() << endl;
   cout << "The area of the above rectangle is : " << rectangle2->getArea() << endl;
   cout << "The perimeter of the above rectangle is : " << rectangle2->getPerimeter() << endl;
+  if (rectangle2->isSquare())
+  {
+    cout << "This rectangle is a square." << endl;
+  }
+  else
+  {
+    cout << "This rectangle is not a square." << endl;
+  }
   delete rectangle2;
 }
