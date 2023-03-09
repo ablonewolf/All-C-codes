@@ -106,6 +106,11 @@ public:
     return this->height;
   }
 
+  int getPerimeter()
+  {
+    return 4 * (this->getLength() + this->getWidth() + this->getHeight());
+  }
+
   int getVolume()
   {
     return this->getLength() * this->getWidth() * this->getHeight();
@@ -191,6 +196,7 @@ int main()
   cin >> height;
   Cuboid *cuboid = new Cuboid(length, width, height);
   cout << "The volume of this cuboid is : " << cuboid->getVolume() << endl;
+  cout << "The perimeter of this cuboid is : " << cuboid->getPerimeter() << endl;
   if (cuboid->isCube())
   {
     cout << "This cuboid is a cube." << endl;
