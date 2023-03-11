@@ -49,32 +49,39 @@ public:
   void removeNode(int value)
   {
     bool found = false;
-    if (this->head != nullptr && this->head->value == value)
+    if (this->head == nullptr)
     {
-      this->head = this->head->next;
-      cout << "Node with value : " << value << " has been removed." << endl;
+      cout << "This LinkedList is empty." << endl;
     }
     else
     {
-      Node *temp = this->head;
-      while (1)
+      if (this->head->value == value)
       {
-        temp = temp->next;
-        if (temp->next->value == value)
-        {
-          Node *newNext = temp->next->next;
-          temp->next = newNext;
-          found = true;
-          break;
-        }
-        if (temp == nullptr)
-        {
-          break;
-        }
-      }
-      if (!found)
-      {
+        this->head = this->head->next;
         cout << "Node with value : " << value << " has been removed." << endl;
+      }
+      else
+      {
+        Node *temp = this->head;
+        while (1)
+        {
+          temp = temp->next;
+          if (temp->next->value == value)
+          {
+            Node *newNext = temp->next->next;
+            temp->next = newNext;
+            found = true;
+            break;
+          }
+          if (temp == nullptr)
+          {
+            break;
+          }
+        }
+        if (!found)
+        {
+          cout << "Node with value : " << value << " has been removed." << endl;
+        }
       }
     }
   }
