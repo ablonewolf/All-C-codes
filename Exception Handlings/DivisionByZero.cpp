@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 
-int division(int param1, int param2)
+int division(int param1, int param2) throw(string)
 {
+  string errorMessage = "division by zero not possible";
   if (param2 == 0)
-    throw 1;
+    throw errorMessage;
   return param1 / param2;
 }
 
@@ -22,8 +23,8 @@ int main()
     int result = division(number1, number2);
     cout << "The result of the division is : " << result << endl;
   }
-  catch (int a)
+  catch (string message)
   {
-    cout << "Division by zero is not possible." << endl;
+    cout << message << endl;
   }
 }
