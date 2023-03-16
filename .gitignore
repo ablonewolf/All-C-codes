@@ -5,3 +5,5 @@
 # Or directories
 !*/
 !.gitignore
+# or any txt files
+!*.txt
