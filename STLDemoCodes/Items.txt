@@ -1,0 +1,10 @@
+Adding a new entry for an Item.
+Item Name: Rice
+Item Price: 45
+Item Quantity in Kilograms: 10
+---------------------------------------------
+Adding a new entry for an Item.
+Item Name: Lentil
+Item Price: 80
+Item Quantity in Kilograms: 5
+---------------------------------------------

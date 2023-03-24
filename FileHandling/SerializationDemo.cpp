@@ -57,4 +57,5 @@ int main()
   cout << "Writing engineer details to the file." << endl;
   ofs << engineer;
   ofs.close();
+  delete engineer;
 }
