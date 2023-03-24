@@ -34,12 +34,13 @@ int main()
   cin >> length;
   cout << "Breadth: ";
   cin >> breadth;
-  unique_ptr<Rectangle> rectangle(new Rectangle(length, breadth));
+  shared_ptr<Rectangle> rectangle(new Rectangle(length, breadth));
   cout << "The area of the rectangle is " << rectangle->getArea() << endl;
-  unique_ptr<Rectangle> rectangle2;
+  cout << "The perimeter of the rectangle is " << rectangle->getPerimeter() << endl;
+  shared_ptr<Rectangle> rectangle2;
 
-  // rectangle2 = rectangle; this is not allowed. A unique pointer will not share its reference with another
-  // moving reference from rectangle pointer to rectangle2 pointer
-  rectangle2 = move(rectangle);
-  cout << "The perimeter of the rectangle is : " << rectangle2->getPerimeter() << endl;
+  // This is allowed. Two shared pointers can point to the same object in a shared manner.
+  rectangle2 = rectangle;
+  cout << "The area of rectangle2 is " << rectangle2->getArea() << endl;
+  cout << "The perimeter of the rectangle2 is : " << rectangle2->getPerimeter() << endl;
 }
