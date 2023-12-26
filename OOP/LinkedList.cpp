@@ -46,6 +46,63 @@ public:
       this->head = node;
     }
   }
+
+  bool insertNodeInOrder(int value)
+  {
+    bool isAdditionSuccessful = false;
+    Node *node = new Node(value);
+    if (this->head != nullptr)
+    {
+      if (this->head->value > node->value)
+      {
+        Node *temp = this->head;
+        node->next = temp;
+        this->head = node;
+        isAdditionSuccessful = true;
+      }
+      else
+      {
+        Node *temp = this->head;
+        while (1)
+        {
+          if (temp->next == nullptr)
+          {
+            temp->next = node;
+            isAdditionSuccessful = true;
+            break;
+          }
+          else if (temp->next->value < node->value)
+          {
+            if (temp->next->next == nullptr)
+            {
+              temp->next->next = node;
+              isAdditionSuccessful = true;
+              break;
+            }
+            temp = temp->next;
+          }
+          else if (temp->next->value == value)
+          {
+            cout << "This value already exists in the list. So not adding it" << endl;
+            break;
+          }
+          else
+          {
+            node->next = temp->next;
+            temp->next = node;
+            isAdditionSuccessful = true;
+            break;
+          }
+        }
+      }
+    }
+    else
+    {
+      this->head = node;
+      isAdditionSuccessful = true;
+    }
+    return isAdditionSuccessful;
+  }
   void removeNode(int value)
   {
     bool found = false;
@@ -147,16 +204,21 @@ int main()
   cout << "Size : ";
   cin >> size;
   cout << "Enter the values inside the linkedlist." << endl;
-  int value;
-  for (int i = 0; i < size; i++)
+  int iteration = 0;
+  while (iteration < size)
   {
-    cout << "Value : ";
+    int value;
+    cout << "Enter value: ";
     cin >> value;
-    linkedList->insertNode(value);
+    if (linkedList->insertNodeInOrder(value))
+    {
+      iteration++;
+    }
   }
   cout << "Size of the linkedlist is : " << linkedList->getSize() << endl;
   cout << "Its values are : ";
   linkedList->printValues();
+  int value;
   cout << "Now enter value to remove an element." << endl;
   cout << "Value to be removed : ";
   cin >> value;
@@ -164,4 +226,5 @@ int main()
   cout << "After removing the size of the linkedList : " << linkedList->getSize() << endl;
   cout << "Its values are : ";
   linkedList->printValues();
+  delete linkedList;
 }
