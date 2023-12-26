@@ -24,7 +24,7 @@ public:
     this->head->value = initialValue;
   }
   Node *head;
-  ;
+
   void insertNode(int value)
   {
     Node *node = new Node(value);
@@ -65,20 +65,27 @@ public:
         Node *temp = this->head;
         while (1)
         {
-          temp = temp->next;
-          if (temp->next->value == value)
-          {
-            Node *newNext = temp->next->next;
-            temp->next = newNext;
-            found = true;
-            break;
-          }
+          cout << temp->value << endl;
           if (temp == nullptr)
           {
             break;
           }
+          else
+          {
+            if (temp->next->value == value)
+            {
+              Node *newNext = temp->next->next;
+              temp->next = newNext;
+              found = true;
+              break;
+            }
+            else
+            {
+              temp = temp->next;
+            }
+          }
         }
-        if (!found)
+        if (found)
         {
           cout << "Node with value : " << value << " has been removed." << endl;
         }
